@@ -45,7 +45,7 @@
   <section class="foods foods--featured">
     <div class="wrapper">
       <header class="section__header">
-        <h2 class="section__title">{{ "Nos suggestions" | t }}</h2>
+        <h2 class="section__title">{{ "Plats de la semaine" | t }}</h2>
       </header>
       <main class="section__main">
         {% for food in home_foods %}
@@ -61,6 +61,31 @@
   </section>
 {% endif %}
 
+{% if restaurant.summary? %}
+  <div class="wrapper">
+    <section class="home-description">
+      <header>
+        <h2 class="home-description__title">{{ "Notre restaurant" | t }}</h2>
+      </header>
+      {% if restaurant.main_image? %}
+        {% if restaurant.summary? %}
+          <div class="home-description__summary">
+            {{ restaurant.summary }}
+          </div>
+        {% endif %}
+        <div id="home-team" class="home-description__photo">
+          <img src="{{ restaurant.main_image | small_image_url }}" alt="restaurant" title="restaurant">
+        </div>
+      {% endif %}
+      <footer class="section__footer">
+        <a class="button featured__link" href="{{ restaurant.menus_path }}">
+          {{ "Voir toute la carte" | t }}
+        </a>
+      </footer>
+    </section>
+  </div>
+{% endif %}
+
 <div class="wrapper">
   <div class="grid">
     <div class="grid-item large--one-half">
@@ -69,16 +94,18 @@
           <h2 class="section__title">{{ "Horaires" | t }}</h2>
         </header>
         <main class="section__main">
-          <dl class="opening-days">
-          {% for day in opening_hours %}
-            <dt class="opening-day">
-              {{ day.name }}
-            </dt>
-            <dd class="opening-shifts">
-              {{ day.shifts }}
-            </dd>
-          {% endfor %}
-          </dl>
+          <table class="opening-hours">
+            <tbody>
+              {% for day in opening_hours %}
+                <tr class="day-{{ day.number }} {% cycle 'even', 'odd' %}">
+                  <th class="opening-day">{{ day.name }}</th>
+                  <td class="opening-shifts">
+                    {{ day.shifts }}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         {% if restaurant.opening_hours_information? %}
           <div class="opening-hours__information">
             <p>{{ restaurant.opening_hours_information }}</p>

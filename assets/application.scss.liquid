@@ -664,7 +664,7 @@ input,
 textarea,
 button,
 select {
-  font-size: 87.5%; // Henseforth known as 1em (assumed at 14px)
+  font-size: 90%; // Henseforth known as 1em (assumed at 14px)
   line-height: 1.6;
   font-family: $bodyFontStack;
   font-weight: 400;
@@ -729,11 +729,6 @@ img.auto,
   max-width: 100%;
   height: auto;
 }
-
-img.circle {
-  border-radius: 50%;
-}
-
 
 // ==============================================================================
 // #Forms
@@ -844,11 +839,13 @@ form.form-horizontal,
   @include transition(background-color .25s);
   background-color: #9f2a13;
   border: 0;
+  border-radius: 5px;
   color: #fff;
+  width: 200px;
   cursor: pointer;
-  display: inline-block;
-  margin: 0;
-  padding: .5em 2em;
+  display: block;
+  margin: 0 auto;
+  padding: .75em 2em;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -978,6 +975,8 @@ a {
   .section__header {
   }
   .section__footer {
+    width: 100%;
+    margin-top: 1rem;
   }
 
 .main-footer {
@@ -1168,8 +1167,8 @@ label {
   padding: 1em 0;
   .section__title {
     color: #000;
-    border-bottom: 1px solid #000;
-    margin-bottom: .75em;
+    font-weight: 700;
+    font-size: 1.5em;
   }
 }
   .menus__menu-link {
@@ -1195,42 +1194,59 @@ label {
     padding: 0;
   }
 
-.foods--featured {
-  background-color: #f2f2f2;
+.foods--featured { 
   margin-bottom: 1em;
   padding: 1em 0;
   .section__title {
     color: #000;
-    border-bottom: 1px solid #747474;
-    margin-bottom: .75em;
+    font-weight: 700;
+    font-size: 1.5em;
   }
 }
-
+.home-description {
+  margin-bottom: 1.5rem;
+}
+.home-description__title {
+  color: #000;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.home-description__photo {
+  overflow: hidden;
+}
 .opening-hours {
   background-color: #fff;
   margin-bottom: 1em;
   .section__title {
     color: #000;
-    border-bottom: 1px solid #747474;
-    margin-bottom: 1em;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
   }
 }
-  .opening-days {
-    @extend .clearfix;
-    margin-bottom: 1em;
+  .opening-hours {
+    margin-bottom: 0.5rem;
   }
-    .opening-day {
-      color: #000;
-      clear: left;
-      float: left;
-      font-size: 1.2em;
-      width: 40%;
+  .opening-hours .even {
+    background-color: #f5f5f5;
+  }
+  .opening-day, .opening-shifts {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+  .opening-day {
+    padding: .4em .5em .2em 1.25em;
+  }
+  .opening-shifts {
+    padding: .3em .5em;
+    color: #9f2a13;
+  }
+  tr:last-child {
+    .opening-day, .opening-shifts {
+      border-bottom: 0;
     }
-    .opening-shifts {
-      color: #9f2a13;
-      font-size: 1.2em;
-      margin-left: 50%;
-    }
+  }
+
   .opening-hours__information {
     font-size: 1.1em;
     margin-bottom: 1em;
@@ -1241,8 +1257,9 @@ label {
   margin-bottom: 1em;
   .section__title {
     color: #000;
-    border-bottom: 1px solid #747474;
-    margin-bottom: 1em;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
   }
 }
   .map {
@@ -1274,15 +1291,16 @@ label {
 
   }
     .menu__title {
-      color: #000;
+      color: #da8f64;
       margin-bottom: .5em;
+      font-size: 1.25em;
       a {
         color: #9f2a13;
       }
     }
   .menu__description {
     color: #000;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-bottom: 1em;
   }
 
@@ -1318,10 +1336,11 @@ label {
 }
 .food {
   overflow: hidden;
-  _overflow: visible;
-  padding: 0;
+  padding: 0.5rem 0;
   position: relative;
   zoom: 1;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
   .food__image {
     float: left;
@@ -1343,8 +1362,10 @@ label {
   }
     .food__title {
       font-family: $bodyFontStack;
-      font-size: 1.2em;
+      font-size: 1.5em;
       margin-bottom: .25em;
+      color: #9f2a13;
+      font-weight: 700;
     }
     .food__summary {
       font-size: 1em;
