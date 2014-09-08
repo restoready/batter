@@ -959,15 +959,6 @@ a {
           background-color: #f2f2f2;
         }
       }
-  .main-nav__languages {
-    margin: 0;
-    text-align: center;
-  }
-    .main-nav__language {
-      //display: inline-block;
-      margin: 0;
-      font-size: 1.25rem;
-    }
 
 .main-content {
   margin-bottom: 1em;
@@ -1857,11 +1848,18 @@ x:-o-prefocus, .lb-overlay img {
   select {
     font-size: 125%;
   }
-  .main-nav-wrapper {
+  .main-nav-wrapper,
+  .slider-wrapper {
     @include clearfix();
     max-width: $siteWidth;
     margin: 0 auto;
     padding: 0 $gutter;
+  }
+  .main-nav__items {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1rem 0;
+    margin-top: 1rem;
   }
   .logo {
     width: 100px;
@@ -1871,10 +1869,6 @@ x:-o-prefocus, .lb-overlay img {
   .phone-number {
     margin: 1.45em 0;
     text-align: right;
-  }
-  .main-nav__items {
-    margin: 0;
-    text-align: left;
   }
     .main-nav__item {
       display: inline-block;
