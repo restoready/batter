@@ -44,6 +44,19 @@
                   </a>
                 </div>
               {% endif %}
+              <div class="adress-header">
+                {% if restaurant.street_address? %}
+                  <span class="street-adress" itemprop="streetAddress">{{ restaurant.street_address }}</span>
+                  <br />
+                {% endif %}
+                {% if restaurant.zip_code? %}
+                  <span class="zip-code" itemprop="postalCode">{{ restaurant.zip_code }}</span>
+                {% endif %}
+                {% if restaurant.city? %}
+                  <span class="city" itemprop="addressLocality">{{ restaurant.city }}</span>
+                  <br />
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>
