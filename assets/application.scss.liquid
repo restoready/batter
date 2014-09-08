@@ -992,39 +992,47 @@ a {
       color: #000;
       text-decoration: none;
     }
-      .back-to-top__label {
-      }
+
+  .footer-section {
+    border-top: 1px solid #000;
+    padding: 2rem 0;
+  }
   .footer__subscribe {
     margin-bottom: 1em;
     .subscribe__label {
       color: #000;
-    }
-    .subscribe__submit {
+      font-weight: 700;
+      font-size: 1rem;
     }
   }
-  .footer__social {
+  .restaurant-title {
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
   }
-    .social__items {
-      margin: .75em 0;
-      text-align: center;
+  .telephone,
+  .email,
+  .terms-of-use {
+    color: #9f2a13;
+    &:hover, &:focus {
+      color: #fb3a28;
     }
-      .social__item {
-        display: inline-block;
-      }
+  }
+  .network-title {
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+  }
         .social__link {
           @include transition(color .25s);
           color: #9f2a13;
-          display: inline-block;
-          font-size: 2em;
-          padding: .5em;
+          font-size: 1em;
           text-decoration: none;
           &:hover, &:focus {
             color: #fb3a28;
           }
         }
-          .social__label {
-            @extend .hide-text;
-          }
+
   .footer__legal {
     margin-bottom: 1em;
     text-align: center;
