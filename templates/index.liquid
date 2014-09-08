@@ -1,12 +1,16 @@
-<div class="restaurant-main-image">
-  {% if restaurant.summary? %}
-    <div class="wrapper">
-      <div class="restaurant-summary">
-        {{ restaurant.summary }}
-      </div>
-    </div>
-  {% endif %}
-</div>
+<section class="slider">
+  <div class="wrapper">
+    {% if slides.size > 0 %}
+      <ul class="bxslider">
+        {% for slide in slides %}
+          <li>
+            <img src="{{ slide.image | custom_image_url: '700x320#' }}"/>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</section>
 
 {% if home_menus.size > 0 %}
   <section class="menus menus--featured">

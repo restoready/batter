@@ -43,6 +43,9 @@ $body-color: {{ theme_settings.body-color }};
 // Foods
 $food-separator-color: rgba(black, .075);
 
+$red: #cd3618;
+$dark-red: darken($red, 10);
+
 // ==============================================================================
 // #Box model
 // ==============================================================================
@@ -1452,6 +1455,99 @@ label {
   .gallery__item:hover .photo__link {
       background-color: rgba(0, 0, 0, 0.25);
   }
+
+/**
+ * BxSlider v4.0 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2012
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+
+/** RESET AND LAYOUT
+===================================*/
+
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  *zoom: 1;
+}
+
+.bx-wrapper img {
+  display: block;
+  margin: 0 auto;
+}
+
+/** THEME
+===================================*/
+
+/* LOADER */
+
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: image-url('bx_loader.gif') center center no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+
+.bx-wrapper .bx-prev, .bx-wrapper .bx-next,
+.bx-wrapper .bx-prev:hover, .bx-wrapper .bx-next:hover {
+  background-color: transparent;
+  -webkit-transform: translateY(-15px) rotate(45deg);
+}
+
+.bx-wrapper .bx-prev{
+  border-bottom: 4px solid $dark-red;
+  border-left: 4px solid $dark-red;
+}
+
+.bx-wrapper .bx-next {
+  border-top: 4px solid $dark-red;
+  border-right: 4px solid $dark-red;
+}
+
+.bx-wrapper .bx-prev:hover {
+  border-bottom: 4px solid $red;
+  border-left: 4px solid $red;
+}
+
+.bx-wrapper .bx-next:hover {
+  border-top: 4px solid $red;
+  border-right: 4px solid $red;
+}
+
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  outline: 0;
+  width: 50px;
+  height: 50px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+.bx-wrapper .bx-controls-direction a.bx-prev{
+  left: 25px;
+}
+
+.bx-wrapper .bx-controls-direction a.bx-next{
+  right: 25px;
+}
+
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
 
 /**
  * Pure CSS Lightbox
