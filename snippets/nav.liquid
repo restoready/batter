@@ -1,7 +1,7 @@
 <div class="main-nav-wrapper">
   <ul class="main-nav__items">
     {% for link in linklists.navigation-primaire.links %}
-      {% if link.linklist_handle == null %}
+      {% if link.linklist_handle == "" %}
         <li class="main-nav__item">
           <a class="main-nav__link" href="{{ link.url }}">{{ link.title }}</a>
         </li>
@@ -17,11 +17,6 @@
           </ul>
         </li>
       {% endif %}
-    {% endfor %}
-    {% for menu in menus %}
-      <li class="main-nav__item">
-        <a class="main-nav__link" href="{{ menu.url }}">{{ menu.name }}</a>
-      </li>
     {% endfor %}
     <li class="main-nav__item">
       {{ "Newsletter" | newsletter_subscribe_url:'class:main-nav__link' }}
