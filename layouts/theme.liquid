@@ -36,6 +36,11 @@
                 {% endif %}
               </div>
             </div>
+            <div class="header__hamburger btn-hamburger large--hide">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
             <div class="grid-item large--one-third">
               {% if restaurant.phone? %}
                 <div class="phone-number">
@@ -87,6 +92,14 @@
       $(document).ready(function(){
         $('.bxslider').bxSlider({
           pager: false
+        });
+
+        function nav () {
+          $('.main-nav').show;
+          $('.main-nav').slideToggle();
+        }
+        $('.btn-hamburger').click(function() {
+          nav();
         });
       });
     </script>

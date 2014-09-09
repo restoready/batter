@@ -22,7 +22,7 @@
           </header>
           <main class="section__main">
             {% for menu in home_menus %}
-              <h3 class="menu__title">{{ menu.name }}</h3>
+              <h3 class="home-menu__title">{{ menu.name }}</h3>
               {% if menu.summary? %}
                 <div class="menu__description">
                   <p>{{ menu.summary }}</p>
