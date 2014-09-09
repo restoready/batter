@@ -64,6 +64,15 @@
       <nav class="main-nav" role="navigation">
         {% include 'nav' %}
       </nav>
+      {% if restaurant.phone? %}
+        <div class="phone-on-mobile">
+          <div class="number-phone">
+            <a href="tel:{{restaurant.phone_uri}}">
+              <span>{{ restaurant.phone }}</span>
+            </a>
+          </div>
+        </div>
+      {% endif %}
       <main class="main-content" role="main">
         {{ content_for_layout }}
       </main>
