@@ -12,71 +12,78 @@
   </div>
 </section>
 
-{% if home_menus.size > 0 %}
-  <section class="menus menus--featured">
-    <div class="wrapper">
-      <header class="section__header">
-        <h2 class="section__title">{{ "Cette semaine" | t }}</h2>
-      </header>
-      <main class="section__main">
-        {% for menu in home_menus %}
-          <h3 class="menu__title">{{ menu.name }}</h3>
-          {% if menu.summary? %}
-            <div class="menu__description">
-              <p>{{ menu.summary }}</p>
-            </div>
-          {% endif %}
-          {% for food in menu.foods %}
-            {% assign_prices_to prices for food in menu %}
-            {% include 'food' with food:food %}
-          {% endfor %}
-        {% endfor %}
-      </main>
-      <footer class="section__footer">
-        <a class="button featured__link" href="{{ restaurant.menus_path }}">
-          {{ "Voir toute la carte" | t }}
-        </a>
-      </footer>
+<section class="grid">
+  <div class="wrapper">
+    <div class="grid-item large--one-half">
+      {% if home_menus.size > 0 %}
+        <section class="menus menus--featured">
+          <header class="section__header">
+            <h2 class="section__title">{{ "Cette semaine" | t }}</h2>
+          </header>
+          <main class="section__main">
+            {% for menu in home_menus %}
+              <h3 class="menu__title">{{ menu.name }}</h3>
+              {% if menu.summary? %}
+                <div class="menu__description">
+                  <p>{{ menu.summary }}</p>
+                </div>
+              {% endif %}
+              {% for food in menu.foods %}
+                {% assign_prices_to prices for food in menu %}
+                {% include 'food' with food:food %}
+              {% endfor %}
+            {% endfor %}
+          </main>
+          <footer class="section__footer">
+            <a class="button featured__link" href="{{ restaurant.menus_path }}">
+              {{ "Voir toute la carte" | t }}
+            </a>
+          </footer>
+        </section>
+      {% endif %}
     </div>
-  </section>
-{% endif %}
-
-{% if home_foods.size > 0 %}
-  <section class="foods foods--featured">
-    <div class="wrapper">
-      <header class="section__header">
-        <h2 class="section__title">{{ "Plats de la semaine" | t }}</h2>
-      </header>
-      <main class="section__main">
-        {% for food in home_foods %}
-          {% include 'food' with food:food %}
-        {% endfor %}
-      </main>
-      <footer class="section__footer">
-        <a class="button featured__link" href="{{ restaurant.menus_path }}">
-          {{ "Voir toute la carte" | t }}
-        </a>
-      </footer>
+    <div class="grid-item large--one-half">
+      {% if home_foods.size > 0 %}
+        <section class="foods foods--featured">
+          <header class="section__header">
+            <h2 class="section__title">{{ "Plats de la semaine" | t }}</h2>
+          </header>
+          <main class="section__main">
+            {% for food in home_foods %}
+              {% include 'food' with food:food %}
+            {% endfor %}
+          </main>
+          <footer class="section__footer">
+            <a class="button featured__link" href="{{ restaurant.menus_path }}">
+              {{ "Voir toute la carte" | t }}
+            </a>
+          </footer>
+        </section>
+      {% endif %}
     </div>
-  </section>
-{% endif %}
+  </div>
+</section>
 
 {% if restaurant.summary? %}
   <div class="wrapper">
     <section class="home-description">
-      <header>
-        <h2 class="home-description__title">{{ "Notre restaurant" | t }}</h2>
-      </header>
-      {% if restaurant.main_image? %}
-        {% if restaurant.summary? %}
+      <div class="grid">
+        <div class="grid-item large--one-half">
+          <header>
+            <h2 class="home-description__title">{{ "Notre restaurant" | t }}</h2>
+          </header>
+          {% if restaurant.main_image? %}
+            <div id="home-team" class="home-description__photo">
+              <img src="{{ restaurant.main_image | medium_image_url }}" class="home-description__image" alt="restaurant" title="restaurant">
+            </div>
+          {% endif %}
+        </div>
+        <div class="grid-item large--one-half">
           <div class="home-description__summary">
             {{ restaurant.summary }}
           </div>
-        {% endif %}
-        <div id="home-team" class="home-description__photo">
-          <img src="{{ restaurant.main_image | small_image_url }}" alt="restaurant" title="restaurant">
         </div>
-      {% endif %}
+      </div>
       <footer class="section__footer">
         <a class="button featured__link" href="{{ restaurant.menus_path }}">
           {{ "Voir toute la carte" | t }}
