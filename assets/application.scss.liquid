@@ -899,7 +899,9 @@ a {
 .page {
   @extend .clearfix;
 }
-
+.clearer {
+  clear: both;
+}
 .main-header {
 }
   .logo {
@@ -1323,8 +1325,6 @@ label {
     font-size: 1.2em;
     text-align: center;
   }
-  .directions__footer {
-  }
 
 .all-menus__menu-link {
   color: #000;
@@ -1333,11 +1333,16 @@ label {
 .menus-thumbnail--all img {
   width: 100%;
 }
+.menu-header {
+  border-bottom: 1px solid #ddd;
+}
+.menu__header-title {
+  text-align: center;
+}
 .menu {
   padding-bottom: 1.5em;
 }
   .menu--featured {
-
   }
   .menu__image-container {
     margin-bottom: 1em;
@@ -1345,15 +1350,14 @@ label {
     .menu__image {
       @extend .auto;
     }
-  .menu__header {
-
-  }
     .menu__title {
-      color: #da8f64;
+      color: #000;
+      font-weight: 700;
       margin-bottom: .5em;
-      font-size: 1.25em;
+      font-size: 2em;
       a {
-        color: #9f2a13;
+        color: #000;
+        font-weight: 700;
       }
     }
   .menu__description {
@@ -1371,21 +1375,10 @@ label {
   display: inline-block;
   margin-right: 2rem;
 }
-.anchor-items {
-  display: inline-block;
-}
-.anchor-item {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0.25em 0.5em;
-}
 .anchor-scroll {
   font-size: 0.7rem;
   text-decoration: none;
   color: $body-color;
-}
-.anchor-image {
-  border-radius: 50%;
 }
 .food {
   overflow: hidden;
@@ -1393,7 +1386,7 @@ label {
   position: relative;
   zoom: 1;
   border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+  //border-bottom: 1px solid #e5e5e5;
 }
   .food__image {
     float: left;
@@ -1435,6 +1428,7 @@ label {
     padding: 0;
   }
 .food--featured {
+  background-color: #fcebe8;
   .icon-star {
     color: #ffcc00;
   }
@@ -1447,22 +1441,24 @@ label {
   @extend .clearfix;
   margin-bottom: 1em;
 }
+.prices__items {
+  margin-top: 0.5rem;
+  float: right;
+  clear: left;
+  text-align: right;
+}
   .price__label {
-    clear: left;
     color: #000;
-    float: left;
-    width: 66%;
+    font-weight: 700;
+    font-family: "Futura","Trebuchet MS",Arial,sans-serif;
   }
   .price__value {
     color: #000;
     background-color: #f2f2f2;
-    float: right;
     font-weight: 700;
-    text-align: right;
-    width: 33%;
-    padding-right: .5em;
+    padding: .5em;
+    font-family: "Futura","Trebuchet MS",Arial,sans-serif;
   }
-
 
 .back-to-menu {
     text-align: center;
@@ -1971,6 +1967,19 @@ x:-o-prefocus, .lb-overlay img {
 
   .home-description__summary {
     padding-top: 2.5rem;
+  }
+  .food {
+    float: left;
+    width: 45%;
+    margin-right: 2.5%;
+  }
+  .block-grid {
+    overflow: hidden;
+    &>li {
+      &:nth-of-type(2n+1) {
+        clear: left;
+      }
+    }
   }
   .food__title {
     font-size: 1em;

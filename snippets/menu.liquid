@@ -3,16 +3,11 @@
 {% else %}
   <div class="menu" id="menu-{{menu.id}}">
 {% endif %}
-  <figure class="menu__image-container">
-    {% if menu.main_image? %}
-      {{ menu.main_image | custom_image_url: '1920x590#' | image_tag:'class: menu__image' }}
-    {% endif %}
-  </figure>
 {% if menu.depth == 1 %}
   <div class="wrapper">
 {% endif %}
 {% if title == true %}
-  <div class="menu__header">
+  <div class="menu__header-title">
     <h{{ menu.depth | plus: 1 }} class="menu__title">
       {{ menu.name }}
     </h{{ menu.depth | plus: 1 }}>
@@ -24,16 +19,19 @@
   </div>
 {% endif %}
 {% if menu.foods? %}
+  <ul class="block-grid">
   {% for food in menu.foods %}
     {% assign_prices_to prices for food in menu %}
     {% include 'food' with food:food, menu:menu %}
   {% endfor %}
+  </ul>
 {% endif %}
 {% if menu.children? %}
-  {% for child in menu.children %}
-    {% include 'menu' with menu:child %}
-  {% endfor %}
+    {% for child in menu.children %}
+      {% include 'menu' with menu:child %}
+    {% endfor %}
 {% endif %}
+<div class="clearer"></div>
 {% if menu.depth == 1 %}
   <div class="back-to-menu">
     <a class="back-to-menu__link" href="#top">{{ "Retour au menu" | t }}</a>
