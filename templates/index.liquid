@@ -21,9 +21,13 @@
         </header>
         <main class="section__main">
           {% for menu in home_menus %}
-            <h3 class="home-menu__title">{{ menu.name }}</h3>
+            {% if menu.parent? %}
+              <h3 class="home-menu__title"><a href="{{ menu.root_parent.url }}#menu-{{menu.id}}" class="home-menu__title-link">{{ menu.name }}</a></h3>
+            {% else %}
+              <h3 class="home-menu__title"><a href="{{ menu.url }}" class="home-menu__title-link">{{ menu.name }}</a></h3>
+            {% endif %}
             {% if menu.summary? %}
-              <div class="menu__description">
+              <div class="menu__description menu__description--home">
                 <p>{{ menu.summary }}</p>
               </div>
             {% endif %}
