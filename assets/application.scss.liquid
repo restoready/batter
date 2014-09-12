@@ -1,4 +1,5 @@
 /*
+* Batter 1.0
 * RestoReady v1.0
 * Copyright 2014 MH Communication.
 * Author MH Communication @MHCommunication
@@ -13,7 +14,7 @@
 */
 /* Table of Contents
 ==================================================
-  Colors
+  Colors settings
   Box Model
   Breakpoint and Grid Variables
   General Variables
@@ -35,14 +36,28 @@
 ================================================== */
 
 // ==============================================================================
-// #Colors
+// #Colors settings
 // ==============================================================================
 $body-background: {{ theme_settings.body-background }};
 $body-color: {{ theme_settings.body-color }};
-
+$accent-color: {{ theme_settings.accent-color }};
+$featured-star-color: {{ theme_settings.featured-star-color }};
+$featured-food-background: {{ theme_settings.featured-food-background }};
+$featured-menu-background: {{ theme_settings.featured-menu-background }};
+$home-featured-menu-title: {{ theme_settings.home-featured-menu-title }};
+$accent-color-hover: {{ theme_settings.accent-color-hover }};
+$price-value-background: {{ theme_settings.price-value-background }};
+$price-value-color: {{ theme_settings.price-value-color }};
+$label-vegetarian-background: {{ theme_settings.label-vegetarian-background }};
+$label-vegetarian-color: {{ theme_settings.label-vegetarian-color }};
+$label-new-color: {{ theme_settings.label-new-color }};
+$label-new-background: {{ theme_settings.label-new-background }};
+$label-no-pork-color: {{ theme_settings.label-no-pork-color }};
+$label-no-pork-background: {{ theme_settings.label-no-pork-background }};
+$label-no-meat-color: {{ theme_settings.label-no-meat-color }};
+$label-no-meat-background: {{ theme_settings.label-no-meat-background }};
 // Foods
 $food-separator-color: rgba(black, .075);
-
 $red: #cd3618;
 $dark-red: darken($red, 10);
 
@@ -458,7 +473,7 @@ form.form-horizontal,
 // ==============================================================================
 .button {
   @include transition(background-color .25s);
-  background-color: #9f2a13;
+  background-color: $accent-color;
   border: 0;
   border-radius: 5px;
   color: #fff;
@@ -485,7 +500,7 @@ form.form-horizontal,
   &:hover,
   &:active,
   &:focus {
-    background-color: #fb3a28;
+    background-color: $accent-color-hover;
     color: #fff;
   }
 
@@ -559,7 +574,7 @@ a {
     display: none;
   }
     .phone-number__link {
-      color: #9f2a13;
+      color: $accent-color;
       font-size: 1.25em;
       text-decoration: none;
       font-weight: 700;
@@ -645,10 +660,10 @@ a {
   padding: 1.25rem 0;
 }
   .number-phone a {
-    color: #9f2a13;
+    color: $accent-color;
     font-weight: 700;
     &:hover, &:focus {
-      color: #fb3a28;
+      color: $accent-color-hover;
     }
   }
 .main-content {
@@ -694,9 +709,9 @@ a {
   .telephone,
   .email,
   .terms-of-use {
-    color: #9f2a13;
+    color: $accent-color;
     &:hover, &:focus {
-      color: #fb3a28;
+      color: $accent-color-hover;
     }
   }
   .network-title {
@@ -706,11 +721,11 @@ a {
   }
         .social__link {
           @include transition(color .25s);
-          color: #9f2a13;
+          color: $accent-color;
           font-size: 1em;
           text-decoration: none;
           &:hover, &:focus {
-            color: #fb3a28;
+            color: $accent-color-hover;
           }
         }
 
@@ -719,10 +734,10 @@ a {
     text-align: center;
   }
     .legal__link {
-      color: #9f2a13;
+      color: $accent-color;
       text-decoration: none;
       &:hover, &:focus {
-        color: #fb3a28;
+        color: $accent-color-hover;
       }
     }
 
@@ -824,12 +839,12 @@ label {
       height: auto !important;
     }
     a {
-      color: #9f2a13;
-      border-bottom: 1px solid scale-color(#9f2a13, $lightness: +75%);
+      color: $accent-color;
+      border-bottom: 1px solid scale-color($accent-color, $lightness: +75%);
       text-decoration: none;
       &:hover, &:focus {
-        color: #fb3a28;
-        border-bottom: 1px solid scale-color(#fb3a28, $lightness: +75%);
+        color: $accent-color-hover;
+        border-bottom: 1px solid scale-color($accent-color-hover, $lightness: +75%);
       }
     }
   }
@@ -868,10 +883,11 @@ label {
     font-size: 1.5em;
   }
 }
-.home-menu__title {
-  color: #da8f64;
+.home-menu__title-link {
+  color: $home-featured-menu-title;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1.25rem;
+  
 }
   .menus__separator {
     border: none;
@@ -931,7 +947,7 @@ label {
   }
   .opening-shifts {
     padding: .3em .5em;
-    color: #9f2a13;
+    color: $accent-color;
   }
   tr:last-child {
     .opening-day, .opening-shifts {
@@ -972,7 +988,7 @@ label {
   font-weight: 700;
 }
 .menus__menu-link {
-    color: #9f2a13;
+    color: $accent-color;
   }
   .menus__children {
     list-style: none;
@@ -986,8 +1002,9 @@ label {
       float: left;
     }
       .menus__child-link {
-        color: #9f2a13;
+        color: $accent-color;
         text-decoration: none;
+        display: block;
       }
 .menus-thumbnail--all img {
   width: 100%;
@@ -1026,6 +1043,9 @@ label {
     margin-bottom: 1em;
     text-align: center;
   }
+  .menu__description--home {
+    text-align: left;
+  }
 
 // menu page
 .section__title--menu {
@@ -1042,7 +1062,7 @@ label {
 }
 .anchor-scroll {
   text-decoration: none;
-  color: #9f2a13;
+  color: $accent-color;
   text-decoration: none;
 }
 .anchor-image {
@@ -1080,7 +1100,7 @@ label {
       font-family: $bodyFontStack;
       font-size: 1.5em;
       margin-bottom: .25em;
-      color: #9f2a13;
+      color: $accent-color;
       font-weight: 700;
     }
     .food__summary {
@@ -1100,7 +1120,7 @@ label {
 .food--featured {
   background-color: #fcebe8;
   .icon-star {
-    color: #ffcc00;
+    color: $featured-star-color;
   }
   .food__title {
     font-weight: bold;
@@ -1118,13 +1138,13 @@ label {
   text-align: right;
 }
   .price__label {
-    color: #000;
+    color: $body-color;
     font-weight: 700;
     font-family: "Futura","Trebuchet MS",Arial,sans-serif;
   }
   .price__value {
-    color: #000;
-    background-color: #f2f2f2;
+    color: $price-value-color;
+    background-color: $price-value-background;
     font-weight: 700;
     padding: .5em;
     font-family: "Futura","Trebuchet MS",Arial,sans-serif;
@@ -1155,12 +1175,20 @@ label {
     padding: .2em .4em;
   }
     .tag--vegan, .tag--vegetarian {
-      background-color: #8a9e6c;
-      color: #fff;
+      background-color: $label-vegetarian-background;
+      color: $label-vegetarian-color;
     }
     .tag--new {
-      background-color: #d8c061;
-      color: #fff;
+      background-color: $label-new-background;
+      color: $label-new-color;
+    }
+    .tag--no-pork {
+      background-color: $label-no-pork-background;
+      color: $label-no-pork-color;
+    }
+    .tag--no-meat {
+      background-color: $label-no-meat-background;
+      color: $label-no-meat-color;
     }
 
 // Gallery
@@ -1570,7 +1598,7 @@ x:-o-prefocus, .lb-overlay img {
   }
   .menus__child {
     width: 29.33333333%;
-    margin: 0 2%;
+    margin: 0 2% 1rem 2%;
   }
   .menus__child-link {
     font-size: 0.75em;
@@ -1679,7 +1707,7 @@ x:-o-prefocus, .lb-overlay img {
   }
   .menus__child {
     width: 16%;
-    margin: 0 2%;
+    margin: 0 2% 1rem 2%;
   }
   .home-description__block-left {
     width: 46%;
