@@ -7,9 +7,9 @@
         </h2>
       </header>
       <main class="section__main">
-        <ol class="menus__children grid">
+        <ol class="menus__children">
           {% for child in menu.children %}
-            <li class="menus__child grid-item small--one-half medium--one-quarter large--one-sixth">
+            <li class="menus__child">
               {% if child.main_image? %}
                 <div class="menus-thumbnail menus-thumbnail--all">
                   {{ child.main_image | custom_image_url: "200x200#" | image_tag }}
@@ -21,6 +21,7 @@
         </ol>
       </main>
       <hr class="menus__separator">
+      <div class="clearer"></div>
     {% endfor %}
   </div>
 </section>
