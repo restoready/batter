@@ -1,43 +1,42 @@
-{% if menu.featured %}
-  <div class="menu menu--featured" id="menu-{{menu.id}}">
-{% else %}
-  <div class="menu" id="menu-{{menu.id}}">
-{% endif %}
-{% if menu.depth == 1 %}
-  <div class="wrapper">
-{% endif %}
-{% if title == true %}
-  <div class="menu__header-title">
-    <h{{ menu.depth | plus: 1 }} class="menu__title">
-      {{ menu.name }}
-    </h{{ menu.depth | plus: 1 }}>
-  </div>
-{% endif %}
-{% if menu.summary? %}
-  <div class="menu__description">
-    <p>{{ menu.summary }}</p>
-  </div>
-{% endif %}
-{% if menu.foods? %}
-  <ul class="block-grid">
-  {% for food in menu.foods %}
-    {% assign_prices_to prices for food in menu %}
-    {% include 'food' with food:food, menu:menu %}
-  {% endfor %}
-  </ul>
-{% endif %}
-{% if menu.children? %}
-    {% for child in menu.children %}
-      {% include 'menu' with menu:child %}
+<div class="wrapper">
+  {% if menu.featured %}
+    <div class="menu menu--featured" id="menu-{{menu.id}}">
+  {% else %}
+    <div class="menu" id="menu-{{menu.id}}">
+  {% endif %}
+  {% if title == true %}
+    <div class="menu__header-title">
+      <h{{ menu.depth | plus: 1 }} class="menu__title">
+        {{ menu.name }}
+      </h{{ menu.depth | plus: 1 }}>
+    </div>
+  {% endif %}
+  {% if menu.summary? %}
+    <div class="menu__description">
+      <p>{{ menu.summary }}</p>
+    </div>
+  {% endif %}
+  {% if menu.foods? %}
+    <ul class="block-grid">
+    {% for food in menu.foods %}
+      {% assign_prices_to prices for food in menu %}
+      {% include 'food' with food:food, menu:menu %}
     {% endfor %}
-{% endif %}
-<div class="clearer"></div>
-{% if menu.depth == 1 %}
-  <div class="back-to-menu">
-    <a class="back-to-menu__link" href="#top">{{ "Retour au menu" | t }}</a>
+    </ul>
+  {% endif %}
+  {% if menu.children? %}
+      {% for child in menu.children %}
+        {% include 'menu' with menu:child %}
+      {% endfor %}
+  {% endif %}
+  <div class="clearer"></div>
+  {% if menu.depth == 1 %}
+    <div class="back-to-menu">
+      <a class="back-to-menu__link" href="#top">{{ "Retour au menu" | t }}</a>
+    </div>
+  {% endif %}
+  {% if menu.depth == 1 %}
+    </div>
+  {% endif %}
   </div>
-{% endif %}
-{% if menu.depth == 1 %}
-  </div>
-{% endif %}
 </div>
