@@ -1241,24 +1241,6 @@ label {
   font-weight: 700;
   font-size: 1em;
 }
-  .menus__menu-link {
-    color: #9f2a13;
-  }
-  .menus__children {
-    list-style: none;
-  }
-    .menus__child {
-      font-size: 1.2em;
-      text-align: center;
-      margin-bottom: 2rem;
-      width: 46%;
-      margin: 2%;
-      float: left;
-    }
-      .menus__child-link {
-        color: #9f2a13;
-        text-decoration: none;
-      }
   .menus__separator {
     border: none;
     border-top: medium solid $food-separator-color;
@@ -1352,10 +1334,29 @@ label {
     text-align: center;
   }
 
+// menus
 .all-menus__menu-link {
   color: #000;
   font-weight: 700;
 }
+.menus__menu-link {
+    color: #9f2a13;
+  }
+  .menus__children {
+    list-style: none;
+  }
+    .menus__child {
+      font-size: 1.2em;
+      text-align: center;
+      margin-bottom: 2rem;
+      width: 46%;
+      margin: 2%;
+      float: left;
+    }
+      .menus__child-link {
+        color: #9f2a13;
+        text-decoration: none;
+      }
 .menus-thumbnail--all img {
   width: 100%;
 }
@@ -1397,10 +1398,24 @@ label {
   display: inline-block;
   margin-right: 2rem;
 }
+.anchor-item {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 46%;
+  margin: 2%;
+  float: left;
+}
 .anchor-scroll {
-  font-size: 0.7rem;
   text-decoration: none;
-  color: $body-color;
+  color: #9f2a13;
+  text-decoration: none;
+}
+.anchor-image {
+  width: 100%;
+}
+.anchor-name {
+  font-size: 0.85em;
 }
 .food {
   overflow: hidden;
@@ -1930,6 +1945,10 @@ x:-o-prefocus, .lb-overlay img {
   .menus__child-link {
     font-size: 0.75em;
   }
+  .anchor-item {
+    width: 29.33333333%;
+    margin: 2%;
+  }
 }
 
 // Large
@@ -2016,6 +2035,10 @@ x:-o-prefocus, .lb-overlay img {
   .home-description__summary {
     padding-top: 2.5rem;
   }
+  .anchor-item {
+    width: 16%;
+    margin: 2%;
+  }
   .block-grid li.food {
     float: left;
     width: 45%;
@@ -2036,20 +2059,15 @@ x:-o-prefocus, .lb-overlay img {
   .footer-adress {
     font-size: 0.85em;
   }
-  /**
- * Pure CSS Lightbox
- * @see http://tympanus.net/codrops/2011/12/26/css3-lightbox/
- */
-.lb-overlay a.lb-close{
-  top: 45px;
-}
-.lb-overlay:target {
-  width: auto;
-  padding: 80px 100px 120px 100px;
-}
-}
-
-// > Large
-@include at-query($min, $siteWidth) {
-
+    /**
+   * Pure CSS Lightbox
+   * @see http://tympanus.net/codrops/2011/12/26/css3-lightbox/
+   */
+  .lb-overlay a.lb-close{
+    top: 45px;
+  }
+  .lb-overlay:target {
+    width: auto;
+    padding: 80px 100px 120px 100px;
+  }
 }

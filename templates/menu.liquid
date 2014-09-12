@@ -2,11 +2,11 @@
   <div class="wrapper menu-header">
     <header class="section__header page-header__header">
       {% if menu.children? %}
-        <ul class="anchor-items grid">
+        <ul class="anchor-items">
           {% for child in menu.children %}
-            <li class="anchor-item grid-item small--one-half medium--one-quarter large--one-sixth">
+            <li class="anchor-item">
               <a href="#menu-{{child.id}}" class="anchor-scroll">
-                {{ child.main_image | custom_image_url: "100x100#" | image_tag: "class:anchor-image" }}
+                {{ child.main_image | custom_image_url: "200x200#" | image_tag: "class:anchor-image" }}
                 <br>
                 <p class="anchor-name">{{ child.name}}</p>
               </a>
