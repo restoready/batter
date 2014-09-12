@@ -12,57 +12,55 @@
   </div>
 </section>
 
-<section class="grid">
-  <div class="wrapper">
-    <div class="grid-item large--one-half">
-      {% if home_menus.size > 0 %}
-        <section class="menus menus--featured">
-          <header class="section__header">
-            <h2 class="section__title">{{ "Cette semaine" | t }}</h2>
-          </header>
-          <main class="section__main">
-            {% for menu in home_menus %}
-              <h3 class="home-menu__title">{{ menu.name }}</h3>
-              {% if menu.summary? %}
-                <div class="menu__description">
-                  <p>{{ menu.summary }}</p>
-                </div>
-              {% endif %}
-              {% for food in menu.foods %}
-                {% assign_prices_to prices for food in menu %}
-                {% include 'food' with food:food %}
-              {% endfor %}
-            {% endfor %}
-          </main>
-          <footer class="section__footer">
-            <a class="button featured__link" href="{{ restaurant.menus_path }}">
-              {{ "Voir toute la carte" | t }}
-            </a>
-          </footer>
-        </section>
-      {% endif %}
-    </div>
-    <div class="grid-item large--one-half">
-      {% if home_foods.size > 0 %}
-        <section class="foods foods--featured">
-          <header class="section__header">
-            <h2 class="section__title">{{ "Plats de la semaine" | t }}</h2>
-          </header>
-          <main class="section__main">
-            {% for food in home_foods %}
+<div class="wrapper">
+  <div class="home-menus-featured">
+    {% if home_menus.size > 0 %}
+      <section class="menus menus--featured">
+        <header class="section__header">
+          <h2 class="section__title">{{ "Cette semaine" | t }}</h2>
+        </header>
+        <main class="section__main">
+          {% for menu in home_menus %}
+            <h3 class="home-menu__title">{{ menu.name }}</h3>
+            {% if menu.summary? %}
+              <div class="menu__description">
+                <p>{{ menu.summary }}</p>
+              </div>
+            {% endif %}
+            {% for food in menu.foods %}
+              {% assign_prices_to prices for food in menu %}
               {% include 'food' with food:food %}
             {% endfor %}
-          </main>
-          <footer class="section__footer">
-            <a class="button featured__link" href="{{ restaurant.menus_path }}">
-              {{ "Voir toute la carte" | t }}
-            </a>
-          </footer>
-        </section>
-      {% endif %}
-    </div>
+          {% endfor %}
+        </main>
+        <footer class="section__footer">
+          <a class="button featured__link" href="{{ restaurant.menus_path }}">
+            {{ "Voir toute la carte" | t }}
+          </a>
+        </footer>
+      </section>
+    {% endif %}
+</div>
+  <div class="home-foods-featured">
+    {% if home_foods.size > 0 %}
+      <section class="foods foods--featured">
+        <header class="section__header">
+          <h2 class="section__title">{{ "Plats de la semaine" | t }}</h2>
+        </header>
+        <main class="section__main">
+          {% for food in home_foods %}
+            {% include 'food' with food:food %}
+          {% endfor %}
+        </main>
+        <footer class="section__footer">
+          <a class="button featured__link" href="{{ restaurant.menus_path }}">
+            {{ "Voir toute la carte" | t }}
+          </a>
+        </footer>
+      </section>
+    {% endif %}
   </div>
-</section>
+</div>
 
 {% if restaurant.summary? %}
   <div class="wrapper">

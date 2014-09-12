@@ -1389,10 +1389,6 @@ label {
     margin-bottom: 1em;
   }
 
-
-// http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
-// all menus
-
 // menu page
 .section__title--menu {
   display: inline-block;
@@ -1931,6 +1927,7 @@ x:-o-prefocus, .lb-overlay img {
 
 // Large
 @include at-query($min, $medium) {
+
   body,
   input,
   textarea,
@@ -1995,7 +1992,16 @@ x:-o-prefocus, .lb-overlay img {
     position: absolute;
     z-index: 9999;
   }
-
+  .home-menus-featured {
+    width: 46%;
+    float: left;
+    margin: 0 2%;
+  }
+  .home-foods-featured {
+    width: 46%;
+    float: right;
+    margin: 0 2%;
+  }
   .home-description__summary {
     padding-top: 2.5rem;
   }
