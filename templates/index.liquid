@@ -27,10 +27,12 @@
                 <p>{{ menu.summary }}</p>
               </div>
             {% endif %}
-            {% for food in menu.foods %}
-              {% assign_prices_to prices for food in menu %}
-              {% include 'food' with food:food %}
-            {% endfor %}
+            <ul>
+              {% for food in menu.foods %}
+                {% assign_prices_to prices for food in menu %}
+                {% include 'food' with food:food %}
+              {% endfor %}
+            </ul>
           {% endfor %}
         </main>
         <footer class="section__footer">
@@ -48,9 +50,11 @@
           <h2 class="section__title">{{ "Plats de la semaine" | t }}</h2>
         </header>
         <main class="section__main">
-          {% for food in home_foods %}
-            {% include 'food' with food:food %}
-          {% endfor %}
+          <ul>
+            {% for food in home_foods %}
+              {% include 'food' with food:food %}
+            {% endfor %}
+          </ul>
         </main>
         <footer class="section__footer">
           <a class="button featured__link" href="{{ restaurant.menus_path }}">
