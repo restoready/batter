@@ -65,23 +65,22 @@
 {% if restaurant.summary? %}
   <div class="wrapper">
     <section class="home-description">
-      <div class="grid">
-        <div class="grid-item large--one-half">
-          <header>
-            <h2 class="home-description__title">{{ "Notre restaurant" | t }}</h2>
-          </header>
-          {% if restaurant.main_image? %}
-            <div id="home-team" class="home-description__photo">
-              <img src="{{ restaurant.main_image | medium_image_url }}" class="home-description__image" alt="restaurant" title="restaurant">
-            </div>
-          {% endif %}
-        </div>
-        <div class="grid-item large--one-half">
-          <div class="home-description__summary">
-            {{ restaurant.summary }}
+      <div class="home-description__block-left">
+        <header>
+          <h2 class="home-description__title">{{ "Notre restaurant" | t }}</h2>
+        </header>
+        {% if restaurant.main_image? %}
+          <div id="home-team" class="home-description__photo">
+            <img src="{{ restaurant.main_image | medium_image_url }}" class="home-description__image" alt="restaurant" title="restaurant">
           </div>
+        {% endif %}
+      </div>
+      <div class="home-description__block-right">
+        <div class="home-description__summary">
+          {{ restaurant.summary }}
         </div>
       </div>
+      <div class="clearer"></div>
       <footer class="section__footer">
         <a class="button featured__link" href="{{ restaurant.menus_path }}">
           {{ "Voir toute la carte" | t }}
@@ -92,70 +91,68 @@
 {% endif %}
 
 <div class="wrapper">
-  <div class="grid">
-    <div class="grid-item large--one-half">
-      <section class="opening-hours">
-        <header class="section__header">
-          <h2 class="section__title">{{ "Horaires" | t }}</h2>
-        </header>
-        <main class="section__main">
-          <table class="opening-hours">
-            <tbody>
-              {% for day in opening_hours %}
-                <tr class="day-{{ day.number }} {% cycle 'even', 'odd' %}">
-                  <th class="opening-day">{{ day.name }}</th>
-                  <td class="opening-shifts">
-                    {{ day.shifts }}
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        {% if restaurant.opening_hours_information? %}
-          <div class="opening-hours__information">
-            <p>{{ restaurant.opening_hours_information }}</p>
+  <div class="opening-hours-block">
+    <section class="opening-hours">
+      <header class="section__header">
+        <h2 class="section__title">{{ "Horaires" | t }}</h2>
+      </header>
+      <main class="section__main">
+        <table class="opening-hours">
+          <tbody>
+            {% for day in opening_hours %}
+              <tr class="day-{{ day.number }} {% cycle 'even', 'odd' %}">
+                <th class="opening-day">{{ day.name }}</th>
+                <td class="opening-shifts">
+                  {{ day.shifts }}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% if restaurant.opening_hours_information? %}
+        <div class="opening-hours__information">
+          <p>{{ restaurant.opening_hours_information }}</p>
+        </div>
+      {% endif %}
+      </main>
+    </section>
+  </div>
+
+  <div class="directions-block">
+    <section class="directions">
+      <header class="section__header">
+        <h2 class="section__title">{{ "Localisation" | t }}</h2>
+      </header>
+      <main class="section__main">
+        {% if theme_settings.google_map_type != "" %}
+          <div class="map">
+            {% if theme_settings.google_map_type == "embed" %}
+              {% google_map_embed: "size:100%x320" %}
+            {% elsif theme_settings.google_map_type == "image" %}
+              <a class="map__link" href="{% google_map_url %}">
+                <img class="map__image" src="{% google_map_image_url: "size:640x320" %}" />
+              </a>
+            {% endif %}
           </div>
         {% endif %}
-        </main>
-      </section>
-    </div>
-
-    <div class="grid-item large--one-half">
-      <section class="directions">
-        <header class="section__header">
-          <h2 class="section__title">{{ "Localisation" | t }}</h2>
-        </header>
-        <main class="section__main">
-          {% if theme_settings.google_map_type != "" %}
-            <div class="map">
-              {% if theme_settings.google_map_type == "embed" %}
-                {% google_map_embed: "size:100%x320" %}
-              {% elsif theme_settings.google_map_type == "image" %}
-                <a class="map__link" href="{% google_map_url %}">
-                  <img class="map__image" src="{% google_map_image_url: "size:640x320" %}" />
-                </a>
-              {% endif %}
-            </div>
-          {% endif %}
-          {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
-          <div class="address">
-            <p>
-              {% if restaurant.street_address? %}
-                {{ restaurant.street_address }}
-                <br />
-              {% endif %}
-              {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
-              {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
-            </p>
-          </div>
-          {% endif %}
-        </main>
-        <footer class="section__footer">
-            <a class="button directions__link" href="{% google_map_url %}">
-              {{ "Voir l'itinéraire" | t }}
-            </a>
-        </footer>
-      </section>
-    </div>
+        {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
+        <div class="address">
+          <p>
+            {% if restaurant.street_address? %}
+              {{ restaurant.street_address }}
+              <br />
+            {% endif %}
+            {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
+            {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
+          </p>
+        </div>
+        {% endif %}
+      </main>
+      <footer class="section__footer">
+          <a class="button directions__link" href="{% google_map_url %}">
+            {{ "Voir l'itinéraire" | t }}
+          </a>
+      </footer>
+    </section>
   </div>
 </div>
