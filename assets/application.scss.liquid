@@ -899,7 +899,8 @@ a {
 .page {
   @extend .clearfix;
 }
-.clearer {
+.clearer,
+.clearer-header {
   clear: both;
 }
 .main-header {
@@ -1940,14 +1941,14 @@ x:-o-prefocus, .lb-overlay img {
   }
   .menus__child {
     width: 29.33333333%;
-    margin: 2%;
+    margin: 0 2%;
   }
   .menus__child-link {
     font-size: 0.75em;
   }
   .anchor-item {
     width: 29.33333333%;
-    margin: 2%;
+    margin: 0 2%;
   }
 }
 
@@ -1959,6 +1960,19 @@ x:-o-prefocus, .lb-overlay img {
   textarea,
   select {
     font-size: 125%;
+  }
+  .clearer-header {
+    clear: none;
+  }
+  .brand-block {
+    width: 62.666666%;
+    margin: 0 2%;
+    float: left;
+  }
+  .infos-block {
+    width: 29.333333%;
+    margin: 0 2%;
+    float: right;
   }
   .main-nav {
     display: block;
@@ -2030,7 +2044,7 @@ x:-o-prefocus, .lb-overlay img {
   }
   .menus__child {
     width: 16%;
-    margin: 2%;
+    margin: 0 2%;
   }
   .home-description__block-left {
     width: 46%;
@@ -2039,7 +2053,7 @@ x:-o-prefocus, .lb-overlay img {
   }
   .home-description__block-right {
     width: 46%;
-    margin: 2%;
+    margin: 0 2%;
     float: right;
   }
   .home-description__summary {
@@ -2047,17 +2061,17 @@ x:-o-prefocus, .lb-overlay img {
   }
   .opening-hours-block {
     width: 46%;
-    margin: 2%;
+    margin: 0 2%;
     float: left;
   }
   .directions-block {
     width: 46%;
-    margin: 2%;
+    margin: 0 2%;
     float: right;
   }
   .anchor-item {
     width: 16%;
-    margin: 2%;
+    margin: 0 2%;
   }
   .block-grid li.food {
     float: left;
