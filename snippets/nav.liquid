@@ -6,7 +6,7 @@
           <a class="main-nav__link" href="{{ link.url }}">{{ link.title }}</a>
         </li>
       {% else %}
-        <li class="main-nav__item">
+        <li class="main-nav__item has-sub-nav">
           <a class="main-nav__link" href="{{ link.url }}">{{ link.title }} </a>
           <ul class="main-sub-nav__items">
             {% for l in linklists[link.linklist_handle].links %}
