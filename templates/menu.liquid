@@ -6,7 +6,11 @@
           {% for child in menu.children %}
             <li class="anchor-item">
               <a href="#menu-{{child.id}}" class="anchor-scroll">
-                {{ child.main_image | custom_image_url: "200x200#" | image_tag: "class:anchor-image" }}
+                {% if child.main_image? %}
+                  {{ child.main_image | custom_image_url: "200x200#" | image_tag: "class:anchor-image" }}
+                {% else %}
+                  {{ 'fallback-image.gif' | asset_url | image_tag: 'alt:menus', 'class:anchor-image', 'width:200' }}
+                {% endif %}
                 <br>
                 <p class="anchor-name">{{ child.name}}</p>
               </a>

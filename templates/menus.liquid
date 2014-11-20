@@ -15,6 +15,8 @@
                   <div class="menus-thumbnail menus-thumbnail--all">
                     {{ child.main_image | custom_image_url: "200x200#" | image_tag }}
                   </div>
+                {% else %}
+                  {{ 'fallback-image.gif' | asset_url | image_tag: 'alt:menus', 'class:anchor-image', 'width:200' }}
                 {% endif %}
                 {{ child.name }}
               </a>
