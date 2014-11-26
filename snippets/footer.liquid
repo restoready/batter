@@ -45,7 +45,7 @@
       </a>
       <br />
     {% endif %}
-    {% if restaurant.email %}
+    {% if restaurant.email? %}
       <a href="mailto:#{{restaurant.email}}">
         <span class='email' itemprop="email">{{ restaurant.email }}</span>
       </a>
