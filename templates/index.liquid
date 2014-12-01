@@ -17,7 +17,7 @@
     {% if home_menus.size > 0 %}
       <section class="menus menus--featured">
         <header class="section__header">
-          <h2 class="section__title">{{ theme_settings.home_menus_featured_text | t }}</h2>
+          <h2 class="section__title">{% if current_locale == 'fr' %}{{ theme_settings.home_menus_featured_text_fr | t }}{% else %}{{ theme_settings.home_menus_featured_text_en | t }}{% endif %}</h2>
         </header>
         <main class="section__main">
           {% for menu in home_menus %}
@@ -51,7 +51,7 @@
     {% if home_foods.size > 0 %}
       <section class="foods foods--featured">
         <header class="section__header">
-          <h2 class="section__title">{{ theme_settings.home_foods_featured_text | t }}</h2>
+          <h2 class="section__title">{% if current_locale == 'fr' %}{{ theme_settings.home_foods_featured_text_fr | t }}{% else %}{{ theme_settings.home_foods_featured_text_en | t }}{% endif %}</h2>
         </header>
         <main class="section__main">
           <ul>
