@@ -113,3 +113,11 @@ msgstr "Virtual tour"
 msgid "Visiter"
 msgstr "Visit"
 
+msgid "Abonnement Newsletter :"
+msgstr "Newsletter Subscription :"
+
+msgid "Haut de la page"
+msgstr "Top"
+
+msgid "Suivez-nous"
+msgstr "Follow-us"
