@@ -1652,7 +1652,11 @@ x:-o-prefocus, .lb-overlay img {
   }
   .main-nav-wrapper,
   .slider-wrapper {
-    @include clearfix();
+    &:after {
+      content: "";
+      display: table;
+      clear: both; }
+    *zoom: 1;
     border-top: 0px;
     max-width: $siteWidth;
     margin: 0 auto;
