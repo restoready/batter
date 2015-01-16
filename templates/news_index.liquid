@@ -1,0 +1,13 @@
+<section class="menus">
+  <div class="wrapper">
+    {% for news in all_news %}
+      <header class="section__header">
+        <h2 class="section__title section_title--allNews">
+          <a class="all-news__news-link" href="{{ news.url }}">{{ news.title }}</a>
+        </h2>
+      </header>
+      <main class="section__main">
+      </main>
+    {% endfor %}
+  </div>
+</section>
