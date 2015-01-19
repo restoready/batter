@@ -123,7 +123,11 @@ $bodyFontStack: {{ theme_settings.body-font }};
   *zoom: 1;
 }
 @mixin clearfix() {
-  @extend .clearfix;
+  &:after {
+    content: "";
+    display: table;
+    clear: both; }
+  *zoom: 1;
 }
 
 @mixin box-shadow($shadow) {
@@ -533,7 +537,7 @@ a {
   color: $body-color;
 }
 .page {
-  @extend .clearfix;
+  @include clearfix();
 }
 .clearer,
 .clearer-header {
@@ -550,7 +554,8 @@ a {
       text-decoration: none;
     }
       .logo__image {
-        @extend .auto;
+        max-width: 100%;
+        height: auto;
       }
   .restaurant-name {
     text-align: center;
@@ -648,7 +653,17 @@ a {
   display: block;
 }
 .main-sub-nav__link{
-  @extend .main-nav__link;
+  @include transition(color .25s);
+  color: #000;
+  display: block;
+  font-size: 0.85em;
+  text-decoration: none;
+  padding: .25em;
+  width: 100%;
+  &:hover,
+  &:focus {
+    color: #555;
+  }
 }
 .main-nav__item:hover .main-sub-nav__items {
   display: block;
@@ -977,7 +992,8 @@ label {
     margin-bottom: 1em;
   }
     .map__image {
-      @extend .auto;
+      max-width: 100%;
+      height: auto;
     }
   .address {
     color: #000;
@@ -1028,7 +1044,8 @@ label {
     margin-bottom: 1em;
   }
     .menu__image {
-      @extend .auto;
+      max-width: 100%;
+      height: auto;
     }
     .menu__title {
       color: #000;
@@ -1131,7 +1148,7 @@ label {
 }
 
 .prices {
-  @extend .clearfix;
+  @include clearfix();
   margin-bottom: 1em;
 }
 .prices__items {
@@ -1213,7 +1230,8 @@ label {
   }
     .gallery__img {
       img {
-        @extend .auto;
+        max-width: 100%;
+        height: auto;
       }
     }
     .photo__caption {
