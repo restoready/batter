@@ -587,7 +587,7 @@ a {
     }
   .adress-header {
     text-align: center;
-    margin: 0.5rem 0 1.5rem 0;
+    margin: .5rem 0;
   }
 .header__hamburger {
   position: absolute;
@@ -608,6 +608,26 @@ a {
       margin-bottom: 0;
       float: right;
     }
+  }
+}
+.local-choice {
+  text-align: center;
+}
+.local-choice-item {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-decoration: none;
+  .local-choice-code {
+    color: $body-color;
+    .local-separator {
+      margin: 0 .25em;
+      color: $body-color;
+    }
+  }
+}
+.local-choice-item--current {
+  .local-choice-code {
+    color: $accent-color;
   }
 }
 .main-nav {
@@ -1689,6 +1709,9 @@ x:-o-prefocus, .lb-overlay img {
     text-align: left;
     padding-top: 1em;
   }
+  .local-choice-item {
+    font-size: 1.75em;
+  }
   .menus__child {
     width: 29.33333333%;
     margin: 0 2% 1rem 2%;
@@ -1729,6 +1752,14 @@ x:-o-prefocus, .lb-overlay img {
     width: 29.333333%;
     margin: 0 2%;
     float: right;
+  }
+  .local-choice {
+    text-align: left;
+  }
+  .local-choice-item {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
   }
   .main-nav {
     display: block;

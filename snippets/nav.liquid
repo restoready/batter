@@ -18,12 +18,5 @@
         </li>
       {% endif %}
     {% endfor %}
-    {% if localized_page_paths.size > 0 %}
-      {% for path in localized_page_paths %}
-        <li class="main-nav__item">
-          <a class="main-nav__link" href="{{ path.url }}">{{ path.locale_name }}</a>
-        </li>
-      {% endfor %}
-    {% endif %}
   </ul>
 </div>
