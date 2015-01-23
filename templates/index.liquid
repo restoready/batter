@@ -19,7 +19,7 @@
         <header class="section__header">
           <h2 class="section__title">{% if current_locale == 'fr' %}{{ theme_settings.home_menus_featured_text_fr | t }}{% else %}{{ theme_settings.home_menus_featured_text_en | t }}{% endif %}</h2>
         </header>
-        <main class="section__main">
+        <div class="section__main">
           {% for menu in home_menus %}
             {% if menu.parent? %}
               <h3 class="home-menu__title"><a href="{{ menu.root_parent.url }}#menu-{{menu.id}}" class="home-menu__title-link">{{ menu.name }}</a></h3>
@@ -38,7 +38,7 @@
               {% endfor %}
             </ul>
           {% endfor %}
-        </main>
+        </div>
         <footer class="section__footer">
           <a class="button featured__link" href="{{ restaurant.menus_path }}">
             {{ "Voir toute la carte" | t }}
@@ -53,13 +53,13 @@
         <header class="section__header">
           <h2 class="section__title">{% if current_locale == 'fr' %}{{ theme_settings.home_foods_featured_text_fr | t }}{% else %}{{ theme_settings.home_foods_featured_text_en | t }}{% endif %}</h2>
         </header>
-        <main class="section__main">
+        <div class="section__main">
           <ul>
             {% for food in home_foods %}
               {% include 'food' with food:food %}
             {% endfor %}
           </ul>
-        </main>
+        </div>
         <footer class="section__footer">
           <a class="button featured__link" href="{{ restaurant.menus_path }}">
             {{ "Voir toute la carte" | t }}
@@ -104,7 +104,7 @@
       <header class="section__header">
         <h2 class="section__title">{{ "Horaires" | t }}</h2>
       </header>
-      <main class="section__main">
+      <div class="section__main">
         <table class="opening-hours">
           <tbody>
             {% for day in opening_hours %}
@@ -122,7 +122,7 @@
           <p>{{ restaurant.opening_hours_information }}</p>
         </div>
       {% endif %}
-      </main>
+      </div>
     </section>
   </div>
 
@@ -131,7 +131,7 @@
       <header class="section__header">
         <h2 class="section__title">{{ "Localisation" | t }}</h2>
       </header>
-      <main class="section__main">
+      <div class="section__main">
         {% if theme_settings.google_map_type != "" %}
           <div class="map">
             {% if theme_settings.google_map_type == "embed" %}
@@ -155,7 +155,7 @@
           </p>
         </div>
         {% endif %}
-      </main>
+      </div>
       <footer class="section__footer">
           <a class="button directions__link" href="{% google_map_url %}">
             {{ "Voir l'itinéraire" | t }}

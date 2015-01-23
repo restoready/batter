@@ -6,7 +6,7 @@
           <a class="all-menus__menu-link" href="{{ menu.url }}">{{ menu.name }}</a>
         </h2>
       </header>
-      <main class="section__main">
+      <div class="section__main">
         <ol class="menus__children">
           {% for child in menu.children %}
             <li class="menus__child">
@@ -23,7 +23,7 @@
             </li>
           {% endfor %}
         </ol>
-      </main>
+      </div>
       <div class="clearer"></div>
       <hr class="menus__separator">
       <div class="clearer"></div>
