@@ -1871,6 +1871,9 @@ x:-o-prefocus, .lb-overlay img {
     margin: 0 2%;
     float: left;
   }
+  .opening-shifts {
+    font-size: .65em;
+  }
   .directions-block {
     width: 46%;
     margin: 0 2%;
@@ -1945,5 +1948,11 @@ x:-o-prefocus, .lb-overlay img {
   }
   .news__one-news-content-wrapper--no-image {
     width: 100%;
+  }
+}
+
+@include at-query($min, $siteWidth) {
+  .opening-shifts {
+    font-size: .95em;
   }
 }
