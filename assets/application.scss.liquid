@@ -58,6 +58,7 @@ $label-no-meat-color: {{ theme_settings.label-no-meat-color }};
 $label-no-meat-background: {{ theme_settings.label-no-meat-background }};
 // Foods
 $food-separator-color: rgba(black, .075);
+$separator-color: rgba(black, .075);
 $red: #cd3618;
 $dark-red: darken($red, 10);
 
@@ -75,7 +76,7 @@ $dark-red: darken($red, 10);
 // ==============================================================================
 $viewportIncrement: 1px;
 
-$small: 480px;
+$small: 535px;
 $medium: 768px;
 $large: 769px;
 
@@ -586,22 +587,47 @@ a {
     }
   .adress-header {
     text-align: center;
-    margin: 0.5rem 0 1.5rem 0;
+    margin: .5rem 0;
   }
 .header__hamburger {
   position: absolute;
-  top: 25px;
-  right: 10px;
-  float: right;
+  top: 10px;
+  right: 5px;
   cursor: pointer;
-  p {
-    margin-bottom: 0;
+  width: 5.5em;
+  .btn-hamburger-wrapper {
+    float: left;
+    margin-right: 5px;
+    div {
+      height: 6px;
+      width: 30px;
+      margin-bottom: 4px;
+      background-color: black;
+    }
+    .btn-hamburger-title {
+      margin-bottom: 0;
+      float: right;
+    }
   }
-  div {
-    height: 6px;
-    width: 40px;
-    margin-bottom: 5px;
-    background-color: black;
+}
+.local-choice {
+  text-align: center;
+}
+.local-choice-item {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-decoration: none;
+  .local-choice-code {
+    color: $body-color;
+    .local-separator {
+      margin: 0 .25em;
+      color: $body-color;
+    }
+  }
+}
+.local-choice-item--current {
+  .local-choice-code {
+    color: $accent-color;
   }
 }
 .main-nav {
@@ -759,7 +785,23 @@ a {
       }
     }
 
-
+  .footer__local-choice {
+    }
+      .footer__local-choice-item {
+        text-decoration: none;
+        color: scale-color($body-color, $lightness: +25%);
+        &:hover, &:focus {
+          color: $body-color;
+        }
+      }
+      .footer__local-choice-item--current {
+        color: $accent-color;
+      }
+      .footer__local-separator {
+        color: scale-color($body-color, $lightness: +25%);
+        font-weight: normal;
+        margin: 0 .25em;
+      }
 // Forms
 input[type="text"],
 input[type="search"],
@@ -1443,7 +1485,71 @@ x:-o-prefocus, .lb-overlay img {
     height: 100%;
 }
 
-
+// news
+  .page-header--news {
+    .page-header__title {
+      font-size: 2.5em;
+    }
+  }
+  .news {
+    margin-top: 1em;
+  }
+  .news__header {
+    margin-bottom: 1em;
+  }
+  .news__header-title {
+    font-size: .8em;
+    font-weight: bold;
+  }
+  .home-news-title__link {
+    text-decoration: none;
+    color: $body-color;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: inline-block;
+    transition: color .25s;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  .news__one-news {
+  }
+  .news__one-news-link {
+    color: $body-color;
+    text-decoration: none;
+  }
+  .news__one-news-image {
+    width: 100%;
+    display: block;
+    height: 300px;
+    background-position: center center;
+  }
+  .news__one-news-content-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+  .news__one-news-date {
+    font-weight: bold;
+    margin-bottom: .5em;
+    font-size: .75em;
+  }
+  .news__one-news-content {
+  }
+  .news__one-news-title {
+    font-size: 1.75em;
+    font-weight: bold;
+  }
+  .news__one-news-summary {
+    margin-bottom: 0;
+    padding-top: .75em;
+  }
+  .news__separator {
+    color: $separator-color;
+    margin: 1.5em 0;
+  }
+  .news__separator--last {
+    display: none;
+  }
 
 
 // ==============================================================================
@@ -1619,10 +1725,8 @@ x:-o-prefocus, .lb-overlay img {
     text-align: left;
     padding-top: 1em;
   }
-  .header__hamburger {
-    div {
-      width: 50px;
-    }
+  .local-choice-item {
+    font-size: 1.75em;
   }
   .menus__child {
     width: 29.33333333%;
@@ -1664,6 +1768,14 @@ x:-o-prefocus, .lb-overlay img {
     width: 29.333333%;
     margin: 0 2%;
     float: right;
+  }
+  .local-choice {
+    text-align: left;
+  }
+  .local-choice-item {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
   }
   .main-nav {
     display: block;
@@ -1759,6 +1871,9 @@ x:-o-prefocus, .lb-overlay img {
     margin: 0 2%;
     float: left;
   }
+  .opening-shifts {
+    font-size: .65em;
+  }
   .directions-block {
     width: 46%;
     margin: 0 2%;
@@ -1809,5 +1924,35 @@ x:-o-prefocus, .lb-overlay img {
   .lb-overlay:target {
     width: auto;
     padding: 80px 100px 120px 100px;
+  }
+
+  // news
+  .news__one-news {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .news__one-news-image {
+    position: absolute;
+    width: 30%;
+    display: block;
+    height: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  .news__one-news-content-wrapper {
+    width: 70%;
+    float: right;
+    padding: 1em 2em;
+  }
+  .news__one-news-content-wrapper--no-image {
+    width: 100%;
+  }
+}
+
+@include at-query($min, $siteWidth) {
+  .opening-shifts {
+    font-size: .95em;
   }
 }

@@ -36,10 +36,12 @@
             </div>
           </div>
           <div class="header__hamburger btn-hamburger large--hide">
-            <p>Menu</p>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="btn-hamburger-wrapper">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <p class="btn-hamburger-title">Menu</p>
           </div>
           <div class="clearer-header"></div>
           <div class="infos-block">
@@ -64,6 +66,15 @@
               {% endif %}
             </div>
           </div>
+          {% if localized_page_paths.size > 0 %}
+            <div class="local-choice">
+              {% for path in localized_page_paths %}
+                <a href="{{ path.url }}" class="local-choice-item {% if path.current? %}local-choice-item--current{% endif %}">
+                  <span class="local-choice-code">{% if forloop.last %}{{ path.locale_code }}{% else %}{{ path.locale_code }}<span class="local-separator">|</span>{% endif%}</span>
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       </header>
       <nav class="main-nav" role="navigation">
