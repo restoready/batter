@@ -48,6 +48,7 @@ $home-featured-menu-title: {{ theme_settings.home-featured-menu-title }};
 $accent-color-hover: {{ theme_settings.accent-color-hover }};
 $price-value-background: {{ theme_settings.price-value-background }};
 $price-value-color: {{ theme_settings.price-value-color }};
+
 $label-vegetarian-background: {{ theme_settings.label-vegetarian-background }};
 $label-vegetarian-color: {{ theme_settings.label-vegetarian-color }};
 $label-new-color: {{ theme_settings.label-new-color }};
@@ -56,6 +57,13 @@ $label-no-pork-color: {{ theme_settings.label-no-pork-color }};
 $label-no-pork-background: {{ theme_settings.label-no-pork-background }};
 $label-no-meat-color: {{ theme_settings.label-no-meat-color }};
 $label-no-meat-background: {{ theme_settings.label-no-meat-background }};
+
+$label-alcohol-free-color: {{ theme_settings.label-alcohol-free-color }};
+$label-alcohol-free-background: {{ theme_settings.label-alcohol-free-background }};
+
+$label-daily-food-color: {{ theme_settings.label-daily-food-color }};
+$label-daily-food-background: {{ theme_settings.label-daily-food-background }};
+
 // Foods
 $food-separator-color: rgba(black, .075);
 $separator-color: rgba(black, .075);
@@ -1235,6 +1243,8 @@ label {
     font-size: .95em;
     border-radius: $radius;
     padding: .2em .4em;
+    background-color: #AAAAAA;
+    color: #FFFFFF;
   }
     .tag--vegan, .tag--vegetarian {
       background-color: $label-vegetarian-background;
@@ -1251,6 +1261,14 @@ label {
     .tag--no-meat {
       background-color: $label-no-meat-background;
       color: $label-no-meat-color;
+    }
+    .tag--daily-food {
+      background-color: $label-daily-food-background;
+      color: $label-daily-food-color;
+    }
+    .tag--alcohol-free {
+      background-color: $label-alcohol-free-background;
+      color: $label-alcohol-free-color;
     }
 
 // Gallery
