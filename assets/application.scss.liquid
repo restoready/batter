@@ -1233,8 +1233,12 @@ label {
   }
     {% for tag in tags %}
       .tag--{{tag.css_class}} {
-        background-color: {{ tag.background_value }};
-        color: {{ tag.color_value }};
+        {% if tag.background_value != "" %}
+          background-color: {{ tag.background_value }};
+        {% endif %}
+        {% if tag.color_value != "" %}
+          color: {{ tag.color_value }};
+        {% endif %}
       }
     {% endfor %}
 
