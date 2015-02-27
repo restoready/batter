@@ -61,3 +61,20 @@
     </section>
   {% endif %}
 {% endif %}
+
+{% if theme_settings.display_google_business_view_embed %}
+  <section class="business-view wrapper">
+    <header>
+      <h2 class="content-title">{{ "Visite virtuelle" | t }}</h2>
+    </header>
+    {% google_business_view_embed: "size:100%x300" %}
+    {% if theme_settings.display_google_business_view_url %}
+      <footer class="page-header-footer">
+        <br />
+        <a class="button" href="{% google_business_view_url %}">
+          {{ "Visiter" | t }}
+        </a>
+      </footer>
+    {% endif %}
+  </section>
+{% endif %}
